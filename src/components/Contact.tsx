@@ -200,11 +200,11 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           <div className="space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden glow-red shadow-lg border border-white/10 bg-white/5">
+              <div className="w-10 h-10 rounded-xl overflow-hidden glow-red shadow-lg border border-white/10 bg-white/5 p-1">
                 <img
                   src="/medias/images/logo.png"
                   alt="Logo Ekie Bozeur Entertainment"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className="font-display font-black text-xl tracking-tighter uppercase italic">

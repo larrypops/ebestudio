@@ -60,11 +60,11 @@ export default function Navbar() {
             className="flex items-center gap-3 transition-transform hover:scale-102"
             onClick={() => setIsOpen(false)}
           >
-            <div className="w-12 h-12 rounded-xl overflow-hidden glow-red shadow-lg border border-white/10 bg-white/5">
+            <div className="w-12 h-12 rounded-xl overflow-hidden glow-red shadow-lg border border-white/10 bg-white/5 p-1">
               <img
                 src="/medias/images/logo.png"
                 alt="Logo Ekie Bozeur Entertainment"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <span className="font-display font-black text-xl sm:text-2xl tracking-tighter uppercase italic leading-none">
