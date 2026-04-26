@@ -1,20 +1,12 @@
-import PageTransition from "../components/PageTransition";
-import { Hero, SocialProof } from "../components/Hero";
-import {
-  Services as ServicesComponent,
-  ValueProposition,
-} from "../components/Services";
+import HeroFast from "../components/HeroFast";
 import HomeDeferredSections from "../components/HomeDeferredSections";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <PageTransition>
-      <Hero />
-      <SocialProof />
-      <ValueProposition />
-      <ServicesComponent />
+    <>
+      <HeroFast />
       <HomeDeferredSections />
 
       <section className="py-24 bg-linear-to-b from-bg-dark to-bg-accent/40 relative overflow-hidden">
@@ -37,6 +29,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </PageTransition>
+    </>
   );
 }
