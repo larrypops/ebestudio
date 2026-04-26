@@ -7,9 +7,14 @@ import { PLAYLIST } from "../constants";
 
 export default function Playlist() {
   const [activeTab, setActiveTab] = useState(PLAYLIST[0].genre);
+  const [audioErrors, setAudioErrors] = useState<Record<string, boolean>>({});
 
   const activeCategory =
     PLAYLIST.find((cat) => cat.genre === activeTab) || PLAYLIST[0];
+
+  const setTrackError = (trackId: string, hasError: boolean) => {
+    setAudioErrors((previous) => ({ ...previous, [trackId]: hasError }));
+  };
 
   return (
     <section className="py-24 relative overflow-hidden" id="playlist">
@@ -72,40 +77,51 @@ export default function Playlist() {
               </div>
 
               <div className="grid gap-4">
-                {activeCategory.tracks.map((track) => (
-                  <motion.article
-                    key={`${track.artist}-${track.title}`}
-                    whileHover={{ y: -2 }}
-                    className="relative p-5 sm:p-6 glass-card rounded-3xl border border-white/10 hover:border-brand/40 transition-all duration-300 overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-accent-violet/10 opacity-40 pointer-events-none" />
+                {activeCategory.tracks.map((track) => {
+                  const trackId = `${track.artist}-${track.title}`;
+                  return (
+                    <motion.article
+                      key={trackId}
+                      whileHover={{ y: -2 }}
+                      className="relative p-5 sm:p-6 glass-card rounded-3xl border border-white/10 hover:border-brand/40 transition-all duration-300 overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-accent-violet/10 opacity-40 pointer-events-none" />
 
-                    <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-5">
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-black text-lg sm:text-xl leading-tight truncate">
-                          {track.title}
-                        </h4>
-                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/45 truncate mt-1">
-                          {track.artist}
-                        </p>
-                      </div>
+                      <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-5">
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-black text-lg sm:text-xl leading-tight truncate">
+                            {track.title}
+                          </h4>
+                          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/45 truncate mt-1">
+                            {track.artist}
+                          </p>
+                        </div>
 
-                      <div className="w-full lg:max-w-[460px]">
-                        <audio
-                          controls
-                          preload="metadata"
-                          src={(track as any).file}
-                          className="w-full"
-                        >
-                          Votre navigateur ne supporte pas l'audio HTML5.
-                        </audio>
-                        <div className="mt-2 text-[11px] text-white/40 text-right">
-                          {track.duration}
+                        <div className="w-full lg:max-w-[460px]">
+                          <audio
+                            controls
+                            preload="metadata"
+                            className="w-full"
+                            onCanPlay={() => setTrackError(trackId, false)}
+                            onError={() => setTrackError(trackId, true)}
+                          >
+                            <source src={(track as any).file} type="audio/mpeg" />
+                            Votre navigateur ne supporte pas l'audio HTML5.
+                          </audio>
+                          {audioErrors[trackId] && (
+                            <p className="mt-2 text-[11px] text-red-300">
+                              Lecture indisponible sur ce navigateur. Essayez de
+                              recharger la page.
+                            </p>
+                          )}
+                          <div className="mt-2 text-[11px] text-white/40 text-right">
+                            {track.duration}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.article>
-                ))}
+                    </motion.article>
+                  );
+                })}
               </div>
             </motion.div>
           </AnimatePresence>
