@@ -9,6 +9,7 @@ export default function About() {
   const teamImageOrder = [
     "/medias/images/team/team-1.jpg",
     "/medias/images/team/team-2.jpg",
+    "/medias/images/team/team-3.jpg",
     "/medias/images/team/team-4.jpg",
     "/medias/images/team/team-5.jpg",
     "/medias/images/team/team-6.jpg",
@@ -16,8 +17,7 @@ export default function About() {
     "/medias/images/team/team-8.jpg",
     "/medias/images/team/team-9.jpg",
     "/medias/images/team/team-10.jpg",
-    "/medias/images/team/team-13.jpg",
-    "/medias/images/team/team-14.jpg",
+    "/medias/images/team/team-11.jpg",
   ];
 
   const values = [

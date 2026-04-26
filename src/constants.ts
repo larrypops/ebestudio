@@ -123,61 +123,61 @@ export const TEAM = [
     name: "TIGER",
     role: "Directeur General",
     description: "Je suis responsable de la direction generale du studio.",
-    image: "/medias/images/team/team-4.jpg",
+    image: "/medias/images/team/team-3.jpg",
   },
   {
     name: "BENI",
     role: "Directeur des affaires administratives et juridiques",
     description:
       "Je suis responsable de la gestion des questions administratives et de la conformite juridique de l'organisation.",
-    image: "/medias/images/team/team-5.jpg",
+    image: "/medias/images/team/team-4.jpg",
   },
   {
     name: "SAP SEULEMENT",
     role: "Technicien son",
     description: "Je suis technicien studio.",
-    image: "/medias/images/team/team-6.jpg",
+    image: "/medias/images/team/team-5.jpg",
   },
   {
     name: "LET ME SHINE",
     role: "Beatmaker - Technicien de son",
     description:
       "Je suis responsable de la creation de beats et de la conception sonore.",
-    image: "/medias/images/team/team-7.jpg",
+    image: "/medias/images/team/team-6.jpg",
   },
   {
     name: "OLAMAR",
     role: "Beatmaker - Technicien de son",
     description:
       "Je suis responsable de la creation de beats et de la conception sonore.",
-    image: "/medias/images/team/team-8.jpg",
+    image: "/medias/images/team/team-7.jpg",
   },
   {
     name: "KING KELLY",
     role: "Photographe - assistant realisateur",
     description:
       "Je suis responsable de la photographie et de l'assistance a la realisation.",
-    image: "/medias/images/team/team-9.jpg",
+    image: "/medias/images/team/team-8.jpg",
   },
   {
     name: "DANI BASS",
     role: "Pianiste - DA",
     description: "Je suis responsable de la composition musicale.",
-    image: "/medias/images/team/team-10.jpg",
+    image: "/medias/images/team/team-9.jpg",
   },
   {
     name: "LET IT SHINE",
     role: "Developpeur web - Graphiste",
     description:
       "Je suis responsable de la creation et de la maintenance des sites web, applications et supports graphiques.",
-    image: "/medias/images/team/team-13.jpg",
+    image: "/medias/images/team/team-10.jpg",
   },
   {
     name: "LONDON",
     role: "Createur de contenu - Infographe",
     description:
       "Je suis responsable de la creation de contenu visuel et graphique.",
-    image: "/medias/images/team/team-14.jpg",
+    image: "/medias/images/team/team-11.jpg",
   },
 ];
 

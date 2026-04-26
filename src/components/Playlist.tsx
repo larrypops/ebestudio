@@ -1,15 +1,110 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Headset, Disc } from "lucide-react";
+import { Headset, Disc, Play, Pause, Volume2 } from "lucide-react";
 import { PLAYLIST } from "../constants";
+
+type Track = (typeof PLAYLIST)[number]["tracks"][number];
+
+function formatTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds <= 0) {
+    return "0:00";
+  }
+
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return `${mins}:${secs}`;
+}
+
+function getTrackKey(track: Track) {
+  return `${track.artist}-${track.title}`;
+}
 
 export default function Playlist() {
   const [activeTab, setActiveTab] = useState(PLAYLIST[0].genre);
+  const [playingKey, setPlayingKey] = useState<string | null>(null);
+  const [progressByKey, setProgressByKey] = useState<Record<string, number>>({});
+  const [timeByKey, setTimeByKey] = useState<Record<string, number>>({});
+  const [durationByKey, setDurationByKey] = useState<Record<string, number>>({});
 
-  const activeCategory =
-    PLAYLIST.find((cat) => cat.genre === activeTab) || PLAYLIST[0];
+  const audioRefs = useRef<Record<string, HTMLAudioElement | null>>({});
+
+  const activeCategory = useMemo(
+    () => PLAYLIST.find((cat) => cat.genre === activeTab) || PLAYLIST[0],
+    [activeTab],
+  );
+
+  const stopAllTracks = () => {
+    Object.values(audioRefs.current).forEach((audio) => {
+      if (audio) {
+        audio.pause();
+      }
+    });
+    setPlayingKey(null);
+  };
+
+  useEffect(() => {
+    stopAllTracks();
+  }, [activeTab]);
+
+  const toggleTrack = async (track: Track) => {
+    const key = getTrackKey(track);
+    const audio = audioRefs.current[key];
+
+    if (!audio) {
+      return;
+    }
+
+    if (playingKey === key && !audio.paused) {
+      audio.pause();
+      setPlayingKey(null);
+      return;
+    }
+
+    Object.entries(audioRefs.current).forEach(([otherKey, otherAudio]) => {
+      if (otherAudio && otherKey !== key) {
+        otherAudio.pause();
+      }
+    });
+
+    try {
+      await audio.play();
+      setPlayingKey(key);
+    } catch {
+      setPlayingKey(null);
+    }
+  };
+
+  const updateTime = (key: string) => {
+    const audio = audioRefs.current[key];
+    if (!audio) {
+      return;
+    }
+
+    const current = audio.currentTime || 0;
+    const duration = audio.duration || 0;
+    const progress = duration > 0 ? (current / duration) * 100 : 0;
+
+    setTimeByKey((prev) => ({ ...prev, [key]: current }));
+    setDurationByKey((prev) => ({ ...prev, [key]: duration }));
+    setProgressByKey((prev) => ({ ...prev, [key]: progress }));
+  };
+
+  const seekTrack = (key: string, progress: number) => {
+    const audio = audioRefs.current[key];
+    if (!audio || !audio.duration) {
+      return;
+    }
+
+    const nextTime = (progress / 100) * audio.duration;
+    audio.currentTime = nextTime;
+    setProgressByKey((prev) => ({ ...prev, [key]: progress }));
+    setTimeByKey((prev) => ({ ...prev, [key]: nextTime }));
+  };
 
   return (
     <section className="py-24 relative overflow-hidden" id="playlist">
@@ -52,14 +147,14 @@ export default function Playlist() {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              initial={{ opacity: 0, scale: 0.97, y: 14 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, scale: 0.97, y: -14 }}
+              transition={{ duration: 0.35 }}
               className="space-y-4"
             >
               <div className="flex items-center gap-4 mb-8 justify-center">
@@ -72,34 +167,91 @@ export default function Playlist() {
               </div>
 
               <div className="grid gap-4">
-                {activeCategory.tracks.map((track) => (
-                  <motion.div
-                    key={`${track.artist}-${track.title}`}
-                    whileHover={{ x: 10 }}
-                    className="group relative p-5 glass-card rounded-2xl border-white/5 hover:border-brand/40 transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-brand/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                {activeCategory.tracks.map((track) => {
+                  const key = getTrackKey(track);
+                  const isPlaying = playingKey === key;
+                  const current = timeByKey[key] ?? 0;
+                  const duration = durationByKey[key] ?? 0;
+                  const progress = progressByKey[key] ?? 0;
 
-                    <div className="relative z-10">
-                      <h4 className="font-bold text-base sm:text-lg leading-tight group-hover:text-brand transition-colors">
-                        {track.title}
-                      </h4>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-white/40">
-                        {track.artist}
-                      </p>
-                    </div>
+                  return (
+                    <motion.article
+                      key={key}
+                      whileHover={{ y: -2 }}
+                      className="relative p-5 sm:p-6 glass-card rounded-3xl border border-white/10 hover:border-brand/40 transition-all duration-300 overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-accent-violet/10 opacity-40 pointer-events-none" />
 
-                    <div className="relative z-10 flex items-center gap-4 sm:justify-end">
-                      <audio controls preload="none" className="w-full sm:w-[280px]">
+                      <audio
+                        ref={(node) => {
+                          audioRefs.current[key] = node;
+                        }}
+                        preload="metadata"
+                        onLoadedMetadata={() => updateTime(key)}
+                        onTimeUpdate={() => updateTime(key)}
+                        onPause={() => {
+                          if (playingKey === key) {
+                            setPlayingKey(null);
+                          }
+                        }}
+                        onPlay={() => setPlayingKey(key)}
+                        onEnded={() => {
+                          setPlayingKey(null);
+                          setProgressByKey((prev) => ({ ...prev, [key]: 0 }));
+                          setTimeByKey((prev) => ({ ...prev, [key]: 0 }));
+                        }}
+                        className="hidden"
+                      >
                         <source src={(track as any).file} type="audio/mpeg" />
-                        Votre navigateur ne supporte pas l'audio HTML5.
                       </audio>
-                      <span className="text-[10px] font-mono text-white/30 shrink-0">
-                        {track.duration}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
+
+                      <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-5">
+                        <div className="flex items-center gap-4 flex-1 min-w-0">
+                          <button
+                            onClick={() => toggleTrack(track)}
+                            className={`w-14 h-14 rounded-2xl border shrink-0 flex items-center justify-center transition-all ${
+                              isPlaying
+                                ? "bg-brand border-brand text-white shadow-[0_0_30px_rgba(229,9,20,0.35)]"
+                                : "bg-white/5 border-white/10 text-white hover:border-brand/50 hover:text-brand"
+                            }`}
+                            aria-label={isPlaying ? "Pause" : "Play"}
+                          >
+                            {isPlaying ? <Pause size={24} /> : <Play size={24} className="ml-0.5" />}
+                          </button>
+
+                          <div className="min-w-0">
+                            <h4 className="font-black text-lg sm:text-xl leading-tight truncate">
+                              {track.title}
+                            </h4>
+                            <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/45 truncate mt-1">
+                              {track.artist}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="w-full lg:max-w-[460px]">
+                          <div className="flex items-center gap-3 text-white/50 text-xs mb-2">
+                            <Volume2 size={14} className={isPlaying ? "text-brand" : ""} />
+                            <span className="font-mono tabular-nums">{formatTime(current)}</span>
+                            <div className="h-px flex-1 bg-white/10" />
+                            <span className="font-mono tabular-nums">{formatTime(duration) || track.duration}</span>
+                          </div>
+
+                          <input
+                            type="range"
+                            min={0}
+                            max={100}
+                            step={0.1}
+                            value={progress}
+                            onChange={(event) => seekTrack(key, Number(event.target.value))}
+                            className="w-full h-2 rounded-full accent-brand bg-white/10 cursor-pointer"
+                            aria-label={`Progression ${track.title}`}
+                          />
+                        </div>
+                      </div>
+                    </motion.article>
+                  );
+                })}
               </div>
             </motion.div>
           </AnimatePresence>
