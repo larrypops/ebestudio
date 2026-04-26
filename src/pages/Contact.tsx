@@ -18,8 +18,8 @@ export default function Contact() {
             <span className="text-gradient">CONTACT</span>
           </motion.h1>
           <p className="text-xl text-white/40 max-w-2xl mx-auto leading-relaxed">
-            Besoin d'une prod ? D'un clip ? Ou juste d'une info ? On est la pour
-            propulser votre carriere.
+            Besoin d'une prod ? D'un clip ? Ou juste d'une info ? On est là pour
+            propulser votre carrière.
           </p>
         </div>
       </section>

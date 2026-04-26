@@ -20,7 +20,11 @@ export function Services() {
 
   const item: Variants = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "circOut" } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    },
   };
 
   return (
@@ -47,8 +51,8 @@ export function Services() {
             </h3>
           </div>
           <p className="text-white/40 max-w-sm text-lg leading-relaxed border-l-0 md:border-l border-white/10 pl-0 md:pl-6 text-center md:text-left mx-auto md:mx-0">
-            Une approche 360 degres pour transformer votre vision artistique en
-            realite commerciale.
+            Une approche 360 degrés pour transformer votre vision artistique en
+            réalité commerciale.
           </p>
         </motion.div>
 
@@ -95,11 +99,11 @@ export function Services() {
 
 export function ValueProposition() {
   const points = [
-    "Qualite studio professionnelle",
-    "Accompagnement personnalise",
-    "Creativite + direction artistique",
+    "Qualité studio professionnelle",
+    "Accompagnement personnalisé",
+    "Créativité + direction artistique",
     "Livraison rapide",
-    "Resultats adaptes aux plateformes",
+    "Résultats adaptés aux plateformes",
   ];
 
   return (
@@ -131,7 +135,7 @@ export function ValueProposition() {
           >
             <LucideIcons.Quote className="text-brand mb-3 sm:mb-4 w-6 h-6 sm:w-8 sm:h-8" />
             <p className="text-lg sm:text-xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight">
-              "Porter les talents africains vers un niveau superieur."
+              "Porter les talents africains vers un niveau supérieur."
             </p>
             <p className="text-[10px] sm:text-xs text-white/40 uppercase font-black tracking-widest">
               - Ekie Bozeur, CEO
@@ -164,8 +168,8 @@ export function ValueProposition() {
             viewport={{ once: true }}
           >
             Chez Ekie Bozeur Entertainment, nous ne faisons pas que produire du
-            son. Nous construisons des identites fortes. Chaque detail compte
-            pour creer l'exceptionnel.
+            son. Nous construisons des identités fortes. Chaque détail compte
+            pour créer l'exceptionnel.
           </motion.p>
 
           <motion.ul className="space-y-6 mb-16">

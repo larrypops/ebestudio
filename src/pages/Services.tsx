@@ -38,13 +38,13 @@ export default function Services() {
   const extraAdvantages = [
     {
       icon: <Star className="text-brand" />,
-      title: "Qualite Certifiee",
+      title: "Qualité Certifiée",
       desc: "Standards internationaux pour toutes nos productions.",
     },
     {
       icon: <Zap className="text-brand" />,
       title: "Livraison Rapide",
-      desc: "Respect strict des delais pour vos sorties.",
+      desc: "Respect strict des délais pour vos sorties.",
     },
     {
       icon: <ShieldCheck className="text-brand" />,
@@ -65,8 +65,8 @@ export default function Services() {
             NOS <span className="text-gradient">SERVICES</span>
           </motion.h1>
           <p className="text-xl text-white/40 max-w-2xl mx-auto leading-relaxed">
-            Une expertise multidimensionnelle pour elever votre art au rang
-            d'icone. Decouvrez nos solutions sur-mesure.
+            Une expertise multidimensionnelle pour élever votre art au rang
+            d'icône. Découvrez nos solutions sur-mesure.
           </p>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function Services() {
                       href={STUDIO_INFO.whatsapp}
                       className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-brand hover:text-white transition-all rounded-xl inline-flex items-center gap-3 font-black uppercase tracking-widest text-xs"
                     >
-                      Reserver ce service <ArrowRight size={16} />
+                      Réserver ce service <ArrowRight size={16} />
                     </a>
                   </div>
                 </motion.div>

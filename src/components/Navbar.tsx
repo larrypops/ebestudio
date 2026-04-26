@@ -15,7 +15,7 @@ export default function Navbar() {
   const links = [
     { name: "ACCUEIL", href: "/" },
     { name: "SERVICES", href: "/services" },
-    { name: "A PROPOS", href: "/about" },
+    { name: "À PROPOS", href: "/about" },
     { name: "CONTACT", href: "/contact" },
   ];
 
@@ -100,7 +100,7 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
           >
-            RESERVER
+            RÉSERVER
           </motion.a>
         </div>
 
@@ -164,7 +164,7 @@ export default function Navbar() {
                 href={STUDIO_INFO.whatsapp}
                 className="w-full py-6 bg-brand text-white text-center font-black rounded-2xl glow-red text-xl uppercase italic shadow-2xl block"
               >
-                Reserver sur WhatsApp
+                Réserver sur WhatsApp
               </a>
             </motion.div>
           </motion.div>

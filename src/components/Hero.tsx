@@ -19,7 +19,11 @@ export function Hero() {
 
   const item: Variants = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "circOut" } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    },
   };
 
   return (
@@ -56,7 +60,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand text-[10px] font-bold mb-8 tracking-[0.2em] uppercase"
           >
             <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-            L'excellence sonore a Yaounde
+            L'excellence sonore à Yaoundé
           </motion.div>
 
           <motion.h1
@@ -71,8 +75,8 @@ export function Hero() {
             variants={item}
             className="text-lg sm:text-xl text-white/50 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
           >
-            Ekie Bozeur Entertainment : la ou la technologie rencontre l'ame
-            artistique. Donnez a votre musique la dimension qu'elle merite.
+            Ekie Bozeur Entertainment : là où la technologie rencontre l'âme
+            artistique. Donnez à votre musique la dimension qu'elle mérite.
           </motion.p>
 
           <motion.div
@@ -85,7 +89,7 @@ export function Hero() {
               whileHover={{ y: -5, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              RESERVER UNE SESSION <MessageSquare size={20} />
+              RÉSERVER UNE SESSION <MessageSquare size={20} />
             </motion.a>
             <Link
               href="/services"

@@ -10,12 +10,12 @@ export default function About() {
     {
       icon: <Award />,
       title: "Excellence",
-      desc: "Le souci du detail a chaque etape.",
+      desc: "Le souci du détail à chaque étape.",
     },
     {
       icon: <Target />,
       title: "Performance",
-      desc: "Des outils de pointe pour des resultats pros.",
+      desc: "Des outils de pointe pour des résultats pros.",
     },
     {
       icon: <Heart />,
@@ -38,12 +38,12 @@ export default function About() {
                 <span className="text-gradient">NOUS ?</span>
               </h1>
               <p className="text-xl text-white/50 leading-relaxed mb-8">
-                Ekie Bozeur Entertainment (EBE) est un studio base a Yaounde
-                specialise dans la production musicale, audiovisuelle et digitale.
+                Ekie Bozeur Entertainment (EBE) est un studio basé à Yaoundé
+                spécialisé dans la production musicale, audiovisuelle et digitale.
               </p>
               <div className="p-8 border-l-2 border-brand bg-white/5 rounded-r-2xl italic text-white/80">
-                "Notre mission : creer des oeuvres de qualite internationale et
-                accompagner les talents africains vers un niveau superieur."
+                "Notre mission : créer des œuvres de qualité internationale et
+                accompagner les talents africains vers un niveau supérieur."
               </div>
             </motion.div>
 
@@ -72,7 +72,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-brand uppercase text-xs font-black tracking-[0.4em] mb-4">
-              L'Equipe EBE
+              L'Équipe EBE
             </h2>
             <h3 className="text-5xl md:text-7xl font-display font-black italic uppercase tracking-tighter">
               UNE FORCE <span className="text-gradient">COLLECTIVE</span>

@@ -18,7 +18,11 @@ import Link from "next/link";
 export function Contact() {
   const item: Variants = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "circOut" } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    },
   };
 
   return (
@@ -34,15 +38,15 @@ export function Contact() {
         >
           <div>
             <h2 className="text-brand uppercase text-xs font-black tracking-[0.4em] mb-6">
-              Contact & Acces
+              Contact & Accès
             </h2>
             <h3 className="text-5xl md:text-8xl font-display font-black tracking-tighter italic uppercase leading-[0.9] mb-8">
               PARLONS DE <br />
               <span className="text-gradient">VOTRE SON</span>
             </h3>
             <p className="text-xl text-white/40 max-w-md leading-relaxed">
-              Base a Yaounde, EBE est le hub creatif pour les artistes qui visent
-              l'excellence. On repond en moins d'une heure.
+              Base à Yaoundé, EBE est le hub créatif pour les artistes qui visent
+              l'excellence. On répond en moins d'une heure.
             </p>
           </div>
 
@@ -65,7 +69,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-[10px] text-white/30 font-black uppercase tracking-[0.2em] mb-1">
-                  Telephone
+                  Téléphone
                 </p>
                 <p className="text-xl font-bold">{STUDIO_INFO.phone}</p>
               </div>
@@ -110,7 +114,7 @@ export function Contact() {
             <div className="grid sm:grid-cols-2 gap-8">
               <div className="space-y-3">
                 <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 ml-1">
-                  Deposez votre blaze
+                  Déposez votre blaze
                 </label>
                 <input
                   type="text"
@@ -137,7 +141,7 @@ export function Contact() {
               <select className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 outline-none focus:border-brand/50 focus:bg-white/[0.08] transition-all appearance-none cursor-pointer">
                 <option className="bg-bg-dark">Enregistrement Voix</option>
                 <option className="bg-bg-dark">Mixage / Mastering</option>
-                <option className="bg-bg-dark">Clip Video</option>
+                <option className="bg-bg-dark">Clip Vidéo</option>
                 <option className="bg-bg-dark">E.P / Album Complet</option>
               </select>
             </div>
@@ -149,7 +153,7 @@ export function Contact() {
               <textarea
                 rows={4}
                 className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 outline-none focus:border-brand/50 focus:bg-white/[0.08] transition-all resize-none"
-                placeholder="Dites-nous ce que vous avez en tete..."
+                placeholder="Dites-nous ce que vous avez en tête..."
               ></textarea>
             </div>
 
@@ -190,7 +194,7 @@ export function Footer() {
   const footerLinks = [
     { name: "Accueil", to: "/" },
     { name: "Services", to: "/services" },
-    { name: "A Propos", to: "/about" },
+    { name: "À Propos", to: "/about" },
     { name: "Contact", to: "/contact" },
   ];
 
@@ -235,7 +239,7 @@ export function Footer() {
               <li>Lundi - Samedi</li>
               <li>09:00 - 21:00</li>
               <li>{STUDIO_INFO.location}</li>
-              <li className="text-brand">Reservation obligatoire</li>
+              <li className="text-brand">Réservation obligatoire</li>
             </ul>
           </div>
 

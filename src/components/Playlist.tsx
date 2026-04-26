@@ -25,7 +25,7 @@ export default function Playlist() {
           viewport={{ once: true }}
         >
           <span className="text-brand uppercase text-[10px] font-black tracking-[0.5em] mb-4 block">
-            Decouvrez notre univers
+            Découvrez notre univers
           </span>
           <h2 className="text-4xl md:text-7xl font-display font-black tracking-tighter uppercase mb-6">
             PLAY<span className="text-gradient">LIST</span>
@@ -119,10 +119,10 @@ export default function Playlist() {
         >
           <div className="text-left">
             <h3 className="text-xl sm:text-2xl font-black italic mb-2 tracking-tight">
-              Pret a creer votre propre hit ?
+              Prêt à créer votre propre hit ?
             </h3>
             <p className="text-white/60 text-sm sm:text-base">
-              Venez enregistrer dans les meilleures conditions a Yaounde.
+              Venez enregistrer dans les meilleures conditions à Yaoundé.
             </p>
           </div>
           <motion.a
@@ -132,7 +132,7 @@ export default function Playlist() {
             className="w-full sm:w-auto px-8 py-4 bg-brand text-white text-xs font-black uppercase tracking-widest rounded-full shadow-[0_0_40px_rgba(229,9,20,0.4)] flex items-center justify-center gap-3 shrink-0"
           >
             <Headset size={18} />
-            Reserver ma session
+            Réserver ma session
           </motion.a>
         </motion.div>
       </div>

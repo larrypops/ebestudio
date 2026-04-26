@@ -5,7 +5,7 @@ import AppShell from "../components/AppShell";
 export const metadata: Metadata = {
   title: "Ekie Bozeur Entertainment",
   description:
-    "Studio musical et audiovisuel a Yaounde: enregistrement, mixage, mastering, clip video et communication digitale.",
+    "Studio musical et audiovisuel à Yaoundé: enregistrement, mixage, mastering, clip vidéo et communication digitale.",
   icons: {
     icon: "/medias/images/logo.png",
     shortcut: "/medias/images/logo.png",
