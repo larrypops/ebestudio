@@ -6,20 +6,6 @@ import { motion } from "motion/react";
 import { Target, Heart, Award } from "lucide-react";
 
 export default function About() {
-  const teamImageOrder = [
-    "/medias/images/team/team-1.jpg",
-    "/medias/images/team/team-2.jpg",
-    "/medias/images/team/team-3.jpg",
-    "/medias/images/team/team-4.jpg",
-    "/medias/images/team/team-5.jpg",
-    "/medias/images/team/team-6.jpg",
-    "/medias/images/team/team-7.jpg",
-    "/medias/images/team/team-8.jpg",
-    "/medias/images/team/team-9.jpg",
-    "/medias/images/team/team-10.jpg",
-    "/medias/images/team/team-11.jpg",
-  ];
-
   const values = [
     {
       icon: <Award />,
@@ -98,19 +84,19 @@ export default function About() {
               <motion.div
                 key={member.name}
                 className="group"
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={false}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
                 viewport={{ once: true, amount: 0.2 }}
               >
                 <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/5 transition-all duration-700 group-hover:border-brand/40 group-hover:shadow-[0_20px_50px_rgba(229,9,20,0.1)] group-hover:-translate-y-2">
                   <img
-                    src={teamImageOrder[i] ?? member.image}
+                    src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                    loading="lazy"
+                    loading="eager"
                     onError={(event) => {
-                      event.currentTarget.src = "/medias/images/logo.png";
+                      event.currentTarget.src = "/medias/images/team/team-1.jpg";
                     }}
                   />
 
