@@ -199,18 +199,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           <div className="space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden glow-red shadow-lg border border-white/10 bg-white/5 p-1">
-                <img
-                  src="/medias/images/logo.png"
-                  alt="Logo Ekie Bozeur Entertainment"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="font-display font-black text-xl tracking-tighter uppercase italic">
-                Ekie Bozeur <span className="text-brand">Entertainment</span>
-              </span>
-            </div>
+            <Link href="/" className="inline-flex items-center">
+              <img
+                src="/medias/images/logo.png"
+                alt="Logo Ekie Bozeur Entertainment"
+                className="h-14 w-auto max-w-[220px] object-contain drop-shadow-[0_10px_30px_rgba(229,9,20,0.25)]"
+              />
+            </Link>
             <p className="text-white/30 text-sm leading-relaxed max-w-xs font-bold">
               Le standard international de la production musicale et audiovisuelle
               au Cameroun.

@@ -57,20 +57,14 @@ export default function Navbar() {
         >
           <Link
             href="/"
-            className="flex items-center gap-3 transition-transform hover:scale-102"
+            className="flex items-center transition-transform hover:scale-102"
             onClick={() => setIsOpen(false)}
           >
-            <div className="w-12 h-12 rounded-xl overflow-hidden glow-red shadow-lg border border-white/10 bg-white/5 p-1">
-              <img
-                src="/medias/images/logo.png"
-                alt="Logo Ekie Bozeur Entertainment"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <span className="font-display font-black text-xl sm:text-2xl tracking-tighter uppercase italic leading-none">
-              Ekie Bozeur <br className="sm:hidden" />
-              <span className="text-brand">Entertainment</span>
-            </span>
+            <img
+              src="/medias/images/logo.png"
+              alt="Logo Ekie Bozeur Entertainment"
+              className="h-12 sm:h-14 md:h-16 w-auto max-w-[220px] object-contain drop-shadow-[0_10px_30px_rgba(229,9,20,0.25)]"
+            />
           </Link>
         </motion.div>
 
