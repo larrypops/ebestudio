@@ -4,9 +4,7 @@ import {
   Services as ServicesComponent,
   ValueProposition,
 } from "../components/Services";
-import { Workflow, Testimonials } from "../components/CompanyMeta";
-import Playlist from "../components/Playlist";
-import { Gallery } from "../components/Gallery";
+import HomeDeferredSections from "../components/HomeDeferredSections";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
@@ -17,10 +15,7 @@ export default function Home() {
       <SocialProof />
       <ValueProposition />
       <ServicesComponent />
-      <Workflow />
-      <Gallery />
-      <Playlist />
-      <Testimonials />
+      <HomeDeferredSections />
 
       <section className="py-24 bg-linear-to-b from-bg-dark to-bg-accent/40 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand/5 rounded-full blur-[120px] pointer-events-none" />

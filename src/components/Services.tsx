@@ -122,6 +122,8 @@ export function ValueProposition() {
               src="/medias/images/about.jpg"
               alt="Ekie Bozeur Entertainment Team"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-linear-to-t from-bg-dark/80 via-transparent to-transparent" />
           </div>
