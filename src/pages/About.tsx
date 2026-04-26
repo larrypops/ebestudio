@@ -6,6 +6,20 @@ import { motion } from "motion/react";
 import { Target, Heart, Award } from "lucide-react";
 
 export default function About() {
+  const teamImageOrder = [
+    "/medias/images/team/team-1.jpg",
+    "/medias/images/team/team-2.jpg",
+    "/medias/images/team/team-4.jpg",
+    "/medias/images/team/team-5.jpg",
+    "/medias/images/team/team-6.jpg",
+    "/medias/images/team/team-7.jpg",
+    "/medias/images/team/team-8.jpg",
+    "/medias/images/team/team-9.jpg",
+    "/medias/images/team/team-10.jpg",
+    "/medias/images/team/team-13.jpg",
+    "/medias/images/team/team-14.jpg",
+  ];
+
   const values = [
     {
       icon: <Award />,
@@ -91,9 +105,13 @@ export default function About() {
               >
                 <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/5 transition-all duration-700 group-hover:border-brand/40 group-hover:shadow-[0_20px_50px_rgba(229,9,20,0.1)] group-hover:-translate-y-2">
                   <img
-                    src={member.image}
+                    src={teamImageOrder[i] ?? member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    onError={(event) => {
+                      event.currentTarget.src = "/medias/images/logo.png";
+                    }}
                   />
 
                   <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 bg-gradient-to-t from-bg-dark via-bg-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">

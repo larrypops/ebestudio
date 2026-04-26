@@ -90,12 +90,8 @@ export default function Playlist() {
                     </div>
 
                     <div className="relative z-10 flex items-center gap-4 sm:justify-end">
-                      <audio
-                        controls
-                        preload="none"
-                        src={(track as any).file}
-                        className="w-full sm:w-[280px]"
-                      >
+                      <audio controls preload="none" className="w-full sm:w-[280px]">
+                        <source src={(track as any).file} type="audio/mpeg" />
                         Votre navigateur ne supporte pas l'audio HTML5.
                       </audio>
                       <span className="text-[10px] font-mono text-white/30 shrink-0">
