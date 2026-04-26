@@ -35,12 +35,12 @@ export function Gallery() {
       opacity: 1,
       scale: 1,
       rotate: 0,
-      transition: { duration: 0.8, ease: "circOut" },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
   return (
-    <section className="py-32 bg-bg-dark relative overflow-hidden">
+    <section className="py-32 bg-bg-dark relative overflow-hidden content-visibility-auto">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-brand/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -79,6 +79,8 @@ export function Gallery() {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 whileHover={{ scale: 1.15 }}
                 alt="Studio session"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-linear-to-t from-bg-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                 <p className="text-xs font-black tracking-[0.2em] text-brand uppercase mb-2">

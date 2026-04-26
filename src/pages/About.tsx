@@ -53,6 +53,8 @@ export default function About() {
                   src="/medias/images/about.jpg"
                   alt="Studio Life"
                   className="w-full h-full object-cover rounded-2xl"
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand/20 rounded-full blur-[80px] pointer-events-none" />
@@ -61,7 +63,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 bg-bg-accent/30 relative">
+      <section className="py-24 bg-bg-accent/30 relative content-visibility-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(229,9,20,0.05),transparent)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -94,7 +96,8 @@ export default function About() {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                    loading="eager"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
                     onError={(event) => {
                       event.currentTarget.src = "/medias/images/team/team-1.jpg";
                     }}

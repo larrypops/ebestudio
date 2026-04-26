@@ -14,7 +14,7 @@ export function Workflow() {
   ];
 
   return (
-    <section className="py-32 border-y border-white/5 bg-white/[0.01]">
+    <section className="py-32 border-y border-white/5 bg-white/[0.01] content-visibility-auto">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ export function Testimonials() {
   const totalTestimonials = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
 
   return (
-    <section className="py-32 bg-bg-dark relative overflow-hidden">
+    <section className="py-32 bg-bg-dark relative overflow-hidden content-visibility-auto">
       <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-24">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -148,6 +148,8 @@ export function Testimonials() {
                           src={(t as any).avatar} 
                           alt={t.name} 
                           className="w-full h-full object-cover transition-all duration-500"
+                          loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <span className="text-xs font-black">{t.name[0]}</span>
@@ -183,7 +185,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-bg-accent/30">
+    <section className="py-24 bg-bg-accent/30 content-visibility-auto">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-brand uppercase text-sm font-bold tracking-widest mb-4">FAQ</h2>

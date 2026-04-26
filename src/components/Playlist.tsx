@@ -17,7 +17,10 @@ export default function Playlist() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden" id="playlist">
+    <section
+      className="py-24 relative overflow-hidden content-visibility-auto"
+      id="playlist"
+    >
       <div className="absolute inset-0 bg-bg-dark z-0" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand/5 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-violet/5 blur-[120px] rounded-full" />
@@ -100,7 +103,7 @@ export default function Playlist() {
                         <div className="w-full lg:max-w-[460px]">
                           <audio
                             controls
-                            preload="metadata"
+                            preload="none"
                             className="w-full"
                             onCanPlay={() => setTrackError(trackId, false)}
                             onError={() => setTrackError(trackId, true)}

@@ -1,5 +1,3 @@
-"use client";
-
 import PageTransition from "../components/PageTransition";
 import { Hero, SocialProof } from "../components/Hero";
 import {

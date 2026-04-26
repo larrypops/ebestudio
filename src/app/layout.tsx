@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
 import "../index.css";
 import AppShell from "../components/AppShell";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
   title: "Ekie Bozeur Entertainment",
@@ -20,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>
+      <body className={`${inter.variable} ${outfit.variable}`}>
         <AppShell>{children}</AppShell>
       </body>
     </html>

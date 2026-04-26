@@ -116,6 +116,9 @@ export function Hero() {
                 src="/medias/images/hero-bg.jpg"
                 alt="Studio session"
                 className="w-full aspect-[4/5] sm:aspect-video lg:aspect-[4/5] object-cover transition-all duration-1000"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
             </motion.div>
 
@@ -210,6 +213,8 @@ export function SocialProof() {
                     src={artist.img}
                     alt={artist.name}
                     className="w-full h-full object-cover transition-all duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-brand text-[8px] font-black uppercase px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
