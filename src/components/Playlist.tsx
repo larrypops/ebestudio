@@ -30,6 +30,7 @@ export default function Playlist() {
   const [progressByKey, setProgressByKey] = useState<Record<string, number>>({});
   const [timeByKey, setTimeByKey] = useState<Record<string, number>>({});
   const [durationByKey, setDurationByKey] = useState<Record<string, number>>({});
+  const [errorByKey, setErrorByKey] = useState<Record<string, string | null>>({});
 
   const audioRefs = useRef<Record<string, HTMLAudioElement | null>>({});
 
@@ -59,6 +60,8 @@ export default function Playlist() {
       return;
     }
 
+    setErrorByKey((prev) => ({ ...prev, [key]: null }));
+
     if (playingKey === key && !audio.paused) {
       audio.pause();
       setPlayingKey(null);
@@ -72,10 +75,17 @@ export default function Playlist() {
     });
 
     try {
+      if (audio.readyState === 0) {
+        audio.load();
+      }
       await audio.play();
       setPlayingKey(key);
     } catch {
       setPlayingKey(null);
+      setErrorByKey((prev) => ({
+        ...prev,
+        [key]: "Lecture bloquee par le navigateur. Utilisez le bouton Ouvrir.",
+      }));
     }
   };
 
@@ -173,6 +183,7 @@ export default function Playlist() {
                   const current = timeByKey[key] ?? 0;
                   const duration = durationByKey[key] ?? 0;
                   const progress = progressByKey[key] ?? 0;
+                  const errorMessage = errorByKey[key];
 
                   return (
                     <motion.article
@@ -186,7 +197,9 @@ export default function Playlist() {
                         ref={(node) => {
                           audioRefs.current[key] = node;
                         }}
+                        src={(track as any).file}
                         preload="metadata"
+                        playsInline
                         onLoadedMetadata={() => updateTime(key)}
                         onTimeUpdate={() => updateTime(key)}
                         onPause={() => {
@@ -195,15 +208,19 @@ export default function Playlist() {
                           }
                         }}
                         onPlay={() => setPlayingKey(key)}
+                        onError={() => {
+                          setErrorByKey((prev) => ({
+                            ...prev,
+                            [key]: "Fichier audio indisponible pour cette piste.",
+                          }));
+                        }}
                         onEnded={() => {
                           setPlayingKey(null);
                           setProgressByKey((prev) => ({ ...prev, [key]: 0 }));
                           setTimeByKey((prev) => ({ ...prev, [key]: 0 }));
                         }}
                         className="hidden"
-                      >
-                        <source src={(track as any).file} type="audio/mpeg" />
-                      </audio>
+                      />
 
                       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-5">
                         <div className="flex items-center gap-4 flex-1 min-w-0">
@@ -247,6 +264,19 @@ export default function Playlist() {
                             className="w-full h-2 rounded-full accent-brand bg-white/10 cursor-pointer"
                             aria-label={`Progression ${track.title}`}
                           />
+                          <div className="mt-2 flex items-center justify-between gap-3">
+                            <span className="text-[11px] text-white/40">
+                              {errorMessage ?? "Qualite 320kbps"}
+                            </span>
+                            <a
+                              href={(track as any).file}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-[11px] uppercase tracking-[0.14em] font-black text-brand hover:text-white transition-colors"
+                            >
+                              Ouvrir
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </motion.article>
