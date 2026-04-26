@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 import { STUDIO_INFO } from "../constants";
 import {
   MapPin,
@@ -15,7 +16,7 @@ import {
 import Link from "next/link";
 
 export function Contact() {
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "circOut" } },
   };

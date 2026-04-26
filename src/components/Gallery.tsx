@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 
 const GALLERY_IMAGES = [
   "/medias/images/gallery/gallery-1.jpg",
@@ -18,7 +19,7 @@ const GALLERY_IMAGES = [
 ];
 
 export function Gallery() {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -28,7 +29,7 @@ export function Gallery() {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, scale: 0.8, rotate: -2 },
     show: {
       opacity: 1,

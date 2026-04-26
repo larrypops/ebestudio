@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 import { ArrowRight, Play, MessageSquare } from "lucide-react";
 import { STUDIO_INFO } from "../constants";
 import Link from "next/link";
 
 export function Hero() {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -16,7 +17,7 @@ export function Hero() {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "circOut" } },
   };

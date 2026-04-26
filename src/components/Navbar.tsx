@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
+import type { Variants } from "motion/react";
 import { STUDIO_INFO } from "../constants";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -18,13 +19,13 @@ export default function Navbar() {
     { name: "CONTACT", href: "/contact" },
   ];
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     closed: {
       opacity: 0,
       y: "-100%",
       transition: {
         duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         when: "afterChildren",
         staggerChildren: 0.1,
         staggerDirection: -1,
@@ -35,14 +36,14 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         when: "beforeChildren",
         staggerChildren: 0.1,
       },
     },
   };
 
-  const linkVariants = {
+  const linkVariants: Variants = {
     closed: { opacity: 0, x: -20 },
     open: { opacity: 1, x: 0 },
   };
