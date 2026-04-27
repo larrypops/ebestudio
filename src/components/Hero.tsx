@@ -144,8 +144,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="absolute -top-10 -left-10 w-40 h-40 border border-white/5 rounded-full animate-float opacity-20 hidden sm:block" />
-          <div className="absolute -bottom-10 -right-10 w-60 h-60 border border-brand/10 rounded-full animate-pulse opacity-20 hidden sm:block" />
+          <div className="absolute -top-6 -left-6 sm:-top-10 sm:-left-10 w-24 h-24 sm:w-40 sm:h-40 border border-white/5 rounded-full animate-float opacity-20" />
+          <div className="absolute -bottom-6 -right-6 sm:-bottom-10 sm:-right-10 w-32 h-32 sm:w-60 sm:h-60 border border-brand/10 rounded-full animate-pulse opacity-20" />
         </motion.div>
       </div>
     </section>
