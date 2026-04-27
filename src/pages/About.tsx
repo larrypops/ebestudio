@@ -85,17 +85,17 @@ export default function About() {
             {TEAM.map((member, i) => (
               <motion.div
                 key={member.name}
-                className="group"
+                className="group cursor-pointer"
                 initial={false}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
                 viewport={{ once: true, amount: 0.2 }}
               >
-                <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/5 transition-all duration-700 group-hover:border-brand/40 group-hover:shadow-[0_20px_50px_rgba(229,9,20,0.1)] group-hover:-translate-y-2">
+                <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/5 transition-all duration-700 group-hover:border-brand/40 group-hover:shadow-[0_20px_50px_rgba(229,9,20,0.1)] group-hover:-translate-y-2 group-active:border-brand/40 group-active:shadow-[0_20px_50px_rgba(229,9,20,0.1)] group-active:-translate-y-2">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-active:scale-110"
                     loading={i === 0 ? "eager" : "lazy"}
                     decoding="async"
                     onError={(event) => {
@@ -103,7 +103,7 @@ export default function About() {
                     }}
                   />
 
-                  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 bg-gradient-to-t from-bg-dark via-bg-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 bg-gradient-to-t from-bg-dark via-bg-dark/80 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500">
                     <p className="text-white/60 text-[10px] font-black uppercase tracking-widest leading-none mb-2">
                       Expert EBE
                     </p>
@@ -112,13 +112,13 @@ export default function About() {
                     </p>
                   </div>
 
-                  <div className="absolute top-6 right-6 w-8 h-8 bg-brand rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-0 group-hover:scale-100 rotate-12 group-hover:rotate-0">
+                  <div className="absolute top-6 right-6 w-8 h-8 bg-brand rounded-full flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 group-active:opacity-100 transition-all duration-500 scale-100 sm:scale-0 sm:group-hover:scale-100 group-active:scale-100 rotate-0 sm:rotate-12 sm:group-hover:rotate-0 group-active:rotate-0">
                     <Heart size={14} fill="white" className="text-white" />
                   </div>
                 </div>
 
                 <div className="px-4">
-                  <h4 className="text-2xl font-display font-black tracking-tight mb-1 group-hover:text-brand transition-colors">
+                  <h4 className="text-2xl font-display font-black tracking-tight mb-1 group-hover:text-brand group-active:text-brand transition-colors">
                     {member.name}
                   </h4>
                   <div className="flex items-center gap-2">

@@ -63,6 +63,7 @@ export function Workflow() {
               <motion.div 
                 className="w-16 h-16 bg-bg-accent border border-white/10 rounded-[1.25rem] flex items-center justify-center text-brand shrink-0 lg:mb-8 shadow-xl relative z-10"
                 whileHover={{ scale: 1.1, rotate: 5, backgroundColor: "var(--color-brand)", color: "white" }}
+                whileTap={{ scale: 1.08, rotate: 3, backgroundColor: "var(--color-brand)", color: "white" }}
               >
                 {step.icon}
               </motion.div>
@@ -130,10 +131,10 @@ export function Testimonials() {
             }}
           >
             {totalTestimonials.map((t, i) => (
-              <div
-                key={`${t.name}-${i}`}
-                className="w-[300px] sm:w-[400px] p-8 sm:p-10 glass-card rounded-[2.5rem] border-white/5 hover:border-brand/30 transition-all duration-500 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] shrink-0 select-none"
-              >
+                <div
+                  key={`${t.name}-${i}`}
+                  className="w-[300px] sm:w-[400px] p-8 sm:p-10 glass-card rounded-[2.5rem] border-white/5 hover:border-brand/30 active:border-brand/30 transition-all duration-500 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] shrink-0 select-none"
+                >
                 <div className="mb-6 sm:mb-8">
                   <div className="w-10 h-10 bg-brand/10 text-brand flex items-center justify-center rounded-lg mb-6">
                     <MessageCircle size={20} fill="currentColor" className="opacity-20" />

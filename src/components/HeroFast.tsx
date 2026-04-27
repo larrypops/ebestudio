@@ -8,8 +8,8 @@ export default function HeroFast() {
       id="home"
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-violet/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand/20 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-violet/20 rounded-full blur-[120px] pointer-events-none animate-float" />
 
       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center">
         <div className="relative z-20 text-center lg:text-left">
@@ -31,13 +31,13 @@ export default function HeroFast() {
           <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
             <a
               href={STUDIO_INFO.whatsapp}
-              className="px-10 py-5 bg-brand text-white font-black rounded-2xl flex items-center justify-center gap-3 glow-red hover:bg-brand/90 transition-all text-lg shadow-[0_20px_50px_rgba(229,9,20,0.3)] w-full sm:w-auto"
+              className="px-10 py-5 bg-brand text-white font-black rounded-2xl flex items-center justify-center gap-3 glow-red hover:bg-brand/90 active:bg-brand/90 active:scale-[0.99] transition-all text-lg shadow-[0_20px_50px_rgba(229,9,20,0.3)] w-full sm:w-auto"
             >
               RÉSERVER UNE SESSION <MessageSquare size={20} />
             </a>
             <Link
               href="/services"
-              className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all text-lg w-full sm:w-auto"
+              className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 active:bg-white/10 transition-all text-lg w-full sm:w-auto"
             >
               NOS SERVICES <ArrowRight size={20} />
             </Link>
@@ -45,7 +45,7 @@ export default function HeroFast() {
         </div>
 
         <div className="relative z-10 block">
-          <div className="relative z-10 rounded-[2.5rem] overflow-hidden glass-card p-3 sm:p-5 border-white/5 shadow-2xl skew-y-0 lg:-rotate-3 hover:rotate-0 transition-transform duration-700">
+          <div className="relative z-10 rounded-[2.5rem] overflow-hidden glass-card p-3 sm:p-5 border-white/5 shadow-2xl skew-y-0 lg:-rotate-3 hover:rotate-0 active:rotate-0 transition-transform duration-700">
             <div className="overflow-hidden rounded-[2rem]">
               <img
                 src="/medias/images/hero-bg.jpg"
@@ -69,7 +69,7 @@ export default function HeroFast() {
                   Vibe Check <br /> <span className="text-white/40">In Progress</span>
                 </p>
               </div>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-brand flex items-center justify-center glow-red shadow-lg">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-brand flex items-center justify-center glow-red shadow-lg animate-pulse">
                 <Play className="text-white fill-white ml-1 w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             </div>

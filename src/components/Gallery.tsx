@@ -71,28 +71,30 @@ export function Gallery() {
             <motion.div
               key={i}
               variants={item}
-              className="relative overflow-hidden rounded-3xl aspect-square border border-white/5 group bg-white/5"
+              className="relative overflow-hidden rounded-3xl aspect-square border border-white/5 group bg-white/5 active:scale-[0.99]"
               whileHover={{ scale: 0.98 }}
+              whileTap={{ scale: 0.985 }}
             >
               <motion.img
                 src={img}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover grayscale-0 sm:grayscale sm:group-hover:grayscale-0 transition-all duration-700"
                 whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 1.04 }}
                 alt="Studio session"
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-bg-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-bg-dark/80 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 group-active:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                 <p className="text-xs font-black tracking-[0.2em] text-brand uppercase mb-2">
                   Backstage
                 </p>
                 <p className="text-lg font-bold leading-tight">EBE Session vol.{i + 1}</p>
               </div>
 
-              <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/20 group-hover:border-brand transition-colors" />
-              <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/20 group-hover:border-brand transition-colors" />
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/20 group-hover:border-brand transition-colors" />
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/20 group-hover:border-brand transition-colors" />
+              <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/20 group-hover:border-brand group-active:border-brand transition-colors" />
+              <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/20 group-hover:border-brand group-active:border-brand transition-colors" />
+              <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/20 group-hover:border-brand group-active:border-brand transition-colors" />
+              <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/20 group-hover:border-brand group-active:border-brand transition-colors" />
             </motion.div>
           ))}
         </motion.div>
@@ -105,7 +107,7 @@ export function Gallery() {
         >
           <a
             href="#"
-            className="inline-flex items-center gap-3 text-white/40 hover:text-white transition-colors font-bold uppercase tracking-widest text-xs"
+            className="inline-flex items-center gap-3 text-white/40 hover:text-white active:text-white transition-colors font-bold uppercase tracking-widest text-xs"
           >
             Voir toute la galerie sur Instagram <div className="w-8 h-px bg-white/20" />
           </a>

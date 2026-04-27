@@ -22,7 +22,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/contact"
-              className="px-10 py-5 bg-brand text-white font-bold rounded-full flex items-center justify-center gap-2 glow-red hover:bg-brand/90 transition-all text-lg"
+              className="px-10 py-5 bg-brand text-white font-bold rounded-full flex items-center justify-center gap-2 glow-red hover:bg-brand/90 active:bg-brand/90 active:scale-[0.99] transition-all text-lg"
             >
               Réserver maintenant <ArrowUpRight size={22} />
             </Link>

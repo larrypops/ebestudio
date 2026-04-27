@@ -52,7 +52,7 @@ export function Contact() {
 
           <div className="space-y-8">
             <motion.div variants={item} className="flex items-center gap-6 group">
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-brand border border-white/5 group-hover:bg-brand group-hover:text-white transition-all duration-500">
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-brand border border-white/5 group-hover:bg-brand group-hover:text-white group-active:bg-brand group-active:text-white transition-all duration-500">
                 <MapPin size={28} />
               </div>
               <div>
@@ -64,7 +64,7 @@ export function Contact() {
             </motion.div>
 
             <motion.div variants={item} className="flex items-center gap-6 group">
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-brand border border-white/5 group-hover:bg-brand group-hover:text-white transition-all duration-500">
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-brand border border-white/5 group-hover:bg-brand group-hover:text-white group-active:bg-brand group-active:text-white transition-all duration-500">
                 <Phone size={28} />
               </div>
               <div>
@@ -76,7 +76,7 @@ export function Contact() {
             </motion.div>
 
             <motion.div variants={item} className="flex items-center gap-6 group">
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-brand border border-white/5 group-hover:bg-brand group-hover:text-white transition-all duration-500">
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-brand border border-white/5 group-hover:bg-brand group-hover:text-white group-active:bg-brand group-active:text-white transition-all duration-500">
                 <Mail size={28} />
               </div>
               <div>
@@ -93,8 +93,9 @@ export function Contact() {
               <motion.a
                 key={i}
                 href="#"
-                className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-white hover:text-bg-dark transition-all"
+                className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-white hover:text-bg-dark active:bg-white active:text-bg-dark transition-all"
                 whileHover={{ y: -5 }}
+                whileTap={{ y: -2 }}
               >
                 <Icon size={20} />
               </motion.a>
@@ -178,7 +179,7 @@ export function Contact() {
                 href={STUDIO_INFO.whatsapp}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-6 bg-white/5 border border-white/5 text-white font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 transition-all"
+                className="w-full py-6 bg-white/5 border border-white/5 text-white font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 active:bg-white/10 transition-all"
               >
                 WHATSAPP DIRECT <MessageSquare size={20} />
               </motion.a>
@@ -223,7 +224,7 @@ export function Footer() {
             <ul className="text-sm font-bold text-white/50 space-y-4">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.to} className="hover:text-white transition-colors">
+                  <Link href={link.to} className="hover:text-white active:text-white transition-colors">
                     / {link.name}
                   </Link>
                 </li>
@@ -270,13 +271,13 @@ export function Footer() {
           <div className="flex gap-8">
             <a
               href="#"
-              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40"
+              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40 active:text-white/40"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40"
+              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40 active:text-white/40"
             >
               Terms of Sound
             </a>

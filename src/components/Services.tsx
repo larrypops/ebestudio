@@ -69,22 +69,22 @@ export function Services() {
               <motion.div
                 key={service.id}
                 variants={item}
-                className="group p-10 glass-card rounded-[2rem] hover:bg-white/[0.05] transition-all duration-500 border-white/5 relative overflow-hidden flex flex-col"
+                className="group p-10 glass-card rounded-[2rem] hover:bg-white/[0.05] active:bg-white/[0.05] transition-all duration-500 border-white/5 relative overflow-hidden flex flex-col"
               >
-                <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand/10 rounded-full blur-[60px] group-hover:bg-brand/20 transition-all duration-500" />
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand/10 rounded-full blur-[60px] group-hover:bg-brand/20 group-active:bg-brand/20 transition-all duration-500" />
 
-                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand group-hover:text-white group-active:bg-brand group-active:text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-active:scale-110 group-active:rotate-6">
                   <Icon size={32} />
                 </div>
                 <h4 className="text-2xl font-black mb-4 uppercase tracking-tight">
                   {service.title}
                 </h4>
-                <p className="text-white/40 text-base leading-relaxed mb-8 group-hover:text-white/70 transition-colors flex-1">
+                <p className="text-white/40 text-base leading-relaxed mb-8 group-hover:text-white/70 group-active:text-white/70 transition-colors flex-1">
                   {service.description}
                 </p>
                 <Link
                   href={`/services#${service.id}`}
-                  className="inline-flex items-center gap-2 text-brand font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0"
+                  className="inline-flex items-center gap-2 text-brand font-bold text-xs uppercase tracking-widest opacity-100 sm:opacity-0 transition-all translate-x-0 sm:translate-x-[-10px] sm:group-hover:opacity-100 sm:group-hover:translate-x-0 group-active:opacity-100 group-active:translate-x-0"
                 >
                   En savoir plus <LucideIcons.ChevronRight size={14} />
                 </Link>
@@ -121,7 +121,7 @@ export function ValueProposition() {
             <img
               src="/medias/images/about.jpg"
               alt="Ekie Bozeur Entertainment Team"
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+              className="w-full h-full object-cover grayscale-0 sm:grayscale sm:group-hover:grayscale-0 transition-all duration-1000 sm:group-hover:scale-105"
               loading="lazy"
               decoding="async"
             />
@@ -194,7 +194,7 @@ export function ValueProposition() {
 
           <motion.a
             href={STUDIO_INFO.whatsapp}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-brand text-white font-black rounded-2xl glow-red hover:bg-brand/90 transition-all text-lg"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-brand text-white font-black rounded-2xl glow-red hover:bg-brand/90 active:bg-brand/90 transition-all text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0 }}

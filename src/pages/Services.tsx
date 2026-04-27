@@ -110,7 +110,7 @@ export default function Services() {
                   <div className="pt-4">
                     <a
                       href={STUDIO_INFO.whatsapp}
-                      className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-brand hover:text-white transition-all rounded-xl inline-flex items-center gap-3 font-black uppercase tracking-widest text-xs"
+                      className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-brand hover:text-white active:bg-brand active:text-white transition-all rounded-xl inline-flex items-center gap-3 font-black uppercase tracking-widest text-xs"
                     >
                       Réserver ce service <ArrowRight size={16} />
                     </a>

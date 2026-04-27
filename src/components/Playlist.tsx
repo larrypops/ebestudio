@@ -52,7 +52,7 @@ export default function Playlist() {
               className={`px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 border ${
                 activeTab === category.genre
                   ? "bg-brand border-brand text-white shadow-[0_0_20px_rgba(229,9,20,0.4)]"
-                  : "bg-white/5 border-white/10 text-white/40 hover:border-white/30 hover:text-white"
+                  : "bg-white/5 border-white/10 text-white/40 hover:border-white/30 hover:text-white active:border-white/30 active:text-white"
               }`}
             >
               {category.genre}
@@ -86,7 +86,8 @@ export default function Playlist() {
                     <motion.article
                       key={trackId}
                       whileHover={{ y: -2 }}
-                      className="relative p-5 sm:p-6 glass-card rounded-3xl border border-white/10 hover:border-brand/40 transition-all duration-300 overflow-hidden"
+                      whileTap={{ y: -1 }}
+                      className="relative p-5 sm:p-6 glass-card rounded-3xl border border-white/10 hover:border-brand/40 active:border-brand/40 transition-all duration-300 overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-accent-violet/10 opacity-40 pointer-events-none" />
 

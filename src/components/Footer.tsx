@@ -37,7 +37,7 @@ export default function Footer() {
             <ul className="text-sm font-bold text-white/50 space-y-4">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.to} className="hover:text-white transition-colors">
+                  <Link href={link.to} className="hover:text-white active:text-white transition-colors">
                     / {link.name}
                   </Link>
                 </li>
@@ -84,13 +84,13 @@ export default function Footer() {
           <div className="flex gap-8">
             <a
               href="#"
-              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40"
+              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40 active:text-white/40"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40"
+              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 hover:text-white/40 active:text-white/40"
             >
               Terms of Sound
             </a>

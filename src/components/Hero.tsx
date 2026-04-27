@@ -85,7 +85,7 @@ export function Hero() {
           >
             <motion.a
               href={STUDIO_INFO.whatsapp}
-              className="px-10 py-5 bg-brand text-white font-black rounded-2xl flex items-center justify-center gap-3 glow-red hover:bg-brand/90 transition-all text-lg shadow-[0_20px_50px_rgba(229,9,20,0.3)] w-full sm:w-auto"
+              className="px-10 py-5 bg-brand text-white font-black rounded-2xl flex items-center justify-center gap-3 glow-red hover:bg-brand/90 active:bg-brand/90 active:scale-[0.99] transition-all text-lg shadow-[0_20px_50px_rgba(229,9,20,0.3)] w-full sm:w-auto"
               whileHover={{ y: -5, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -93,7 +93,7 @@ export function Hero() {
             </motion.a>
             <Link
               href="/services"
-              className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all text-lg w-full sm:w-auto"
+              className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 active:bg-white/10 transition-all text-lg w-full sm:w-auto"
             >
               NOS SERVICES <ArrowRight size={20} />
             </Link>
@@ -106,7 +106,7 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: "circOut" }}
         >
-          <div className="relative z-10 rounded-[2.5rem] overflow-hidden glass-card p-3 sm:p-5 border-white/5 shadow-2xl skew-y-0 lg:-rotate-3 hover:rotate-0 transition-transform duration-700">
+          <div className="relative z-10 rounded-[2.5rem] overflow-hidden glass-card p-3 sm:p-5 border-white/5 shadow-2xl skew-y-0 lg:-rotate-3 hover:rotate-0 active:rotate-0 transition-transform duration-700">
             <motion.div
               className="overflow-hidden rounded-[2rem]"
               whileHover={{ scale: 1.05 }}
@@ -206,9 +206,9 @@ export function SocialProof() {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="relative group"
+                className="relative group cursor-pointer"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-bg-dark overflow-hidden bg-bg-accent ring-2 ring-white/5 group-hover:ring-brand transition-all duration-300 group-hover:z-30 group-hover:scale-110">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-bg-dark overflow-hidden bg-bg-accent ring-2 ring-white/5 group-hover:ring-brand group-active:ring-brand transition-all duration-300 group-hover:z-30 group-hover:scale-110 group-active:z-30 group-active:scale-110">
                   <img
                     src={artist.img}
                     alt={artist.name}
@@ -217,7 +217,7 @@ export function SocialProof() {
                     decoding="async"
                   />
                 </div>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-brand text-[8px] font-black uppercase px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-brand text-[8px] font-black uppercase px-2 py-0.5 rounded opacity-100 sm:opacity-0 sm:group-hover:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap">
                   {artist.name}
                 </div>
               </motion.div>
@@ -246,7 +246,7 @@ export function SocialProof() {
               {loopedArtists.map((artist, i) => (
                 <span
                   key={`${artist}-${i}`}
-                  className="text-3xl md:text-7xl font-display font-black text-white/5 hover:text-brand transition-all duration-500 cursor-default uppercase tracking-tight whitespace-nowrap italic hover:scale-110"
+                  className="text-3xl md:text-7xl font-display font-black text-white/5 hover:text-brand active:text-brand transition-all duration-500 cursor-default uppercase tracking-tight whitespace-nowrap italic hover:scale-110 active:scale-105"
                 >
                   {artist}
                 </span>

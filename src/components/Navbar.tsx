@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="transition-opacity duration-300">
           <Link
             href="/"
-            className="flex items-center transition-transform hover:scale-102"
+            className="flex items-center transition-transform hover:scale-105 active:scale-105"
             onClick={() => setIsOpen(false)}
           >
             <img
@@ -45,15 +45,15 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-[10px] font-black tracking-[0.2em] transition-all relative group ${
-                pathname === link.href
-                  ? "text-brand"
-                  : "text-white/50 hover:text-brand"
-              }`}
-            >
-              {link.name}
+                className={`text-[10px] font-black tracking-[0.2em] transition-all relative group ${
+                  pathname === link.href
+                    ? "text-brand"
+                    : "text-white/50 hover:text-brand active:text-brand"
+                }`}
+              >
+                {link.name}
               <span
-                className={`absolute -bottom-2 left-0 h-px bg-brand transition-all group-hover:w-full ${
+                className={`absolute -bottom-2 left-0 h-px bg-brand transition-all group-hover:w-full group-active:w-full ${
                   pathname === link.href ? "w-full" : "w-0"
                 }`}
               />
@@ -61,7 +61,7 @@ export default function Navbar() {
           ))}
           <a
             href={STUDIO_INFO.whatsapp}
-            className="px-8 py-3 bg-white text-bg-dark text-xs font-black rounded-full hover:bg-brand hover:text-white transition-all glow-red shadow-lg"
+            className="px-8 py-3 bg-white text-bg-dark text-xs font-black rounded-full hover:bg-brand hover:text-white active:bg-brand active:text-white transition-all glow-red shadow-lg"
           >
             RÉSERVER
           </a>
@@ -88,7 +88,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               className={`text-5xl font-display font-black tracking-tighter italic uppercase transition-colors ${
-                pathname === link.href ? "text-brand" : "text-white hover:text-brand"
+                pathname === link.href ? "text-brand" : "text-white hover:text-brand active:text-brand"
               }`}
               onClick={() => setIsOpen(false)}
             >
